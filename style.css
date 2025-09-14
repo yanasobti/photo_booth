@@ -1,0 +1,140 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    background: url('bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+}  
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pose-text {
+    position: absolute;
+    top: 15%;
+    left: 43%;
+    font-size: 1rem;
+    color: #fff;
+    background-color: rgba(104, 99, 99, 0.6);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    display: none;
+}
+
+video {
+    border: 4px solid rgb(122, 113, 113);
+    border-radius: 8px;
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    background: #918888;
+    transform: scaleX(-1);
+}
+
+#countdown {
+    font-size: 55px;
+    font-weight: bold;
+    margin: 10px;
+    color: #000000;
+  }
+  
+#snap-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #eb6f9b;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+#snap-btn:hover{
+    background: #e06991;
+    color: white;
+    font-size: 18px;
+}
+  
+#strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  
+.strip-img {
+    width: 150px;     
+    height: auto;
+    border: 4px solid #000;
+    border-radius: 10px;
+  }
+  
+  
+/* @keyframes scrollStrip {
+    from { transform: translateY(100%); }
+    to { transform: translateY(-100%); }
+}
+   */
+
+label[for="filter"] {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #e06991;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+}
+
+#filter {
+  margin-top: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 2px solid #eb6f9b;
+  background: #fff0f6;
+  color: #e06991;
+  font-size: 1rem;
+  font-weight: 500;
+  outline: none;
+  transition: border-color 0.3s;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#filter:focus {
+  border-color: #fc3498;
+}
+
+#filter-buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.filter-btn {
+  background: #fff0f6;
+  color: #e06991;
+  border: 2px solid #eb6f9b;
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin: 0 6px 10px 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  outline: none;
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background: #ff69b4;
+  color: #fff;
+  border-color: #fc3498;
+}

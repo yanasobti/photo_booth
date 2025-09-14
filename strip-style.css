@@ -1,0 +1,67 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    background: url('bg-strip.jpg') no-repeat center center fixed;
+    background-size:cover;
+  }
+  
+  #strip-container {
+    display: flex;
+    flex-direction: row; /* 👈 This places strip and box side-by-side */
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 70px; /* 👈 Adds space between the strip and info box */
+}
+  
+.strip-box {
+    margin-left: 300px;
+    width: 250px;               
+    overflow: visible; 
+    padding: 10px;          
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.strip-box img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;     
+    border-radius: 12px;
+    display: block;
+}
+  
+.info-box {
+    margin-top: 10px;
+    padding: 50px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    opacity: 0.9;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: fit-content;
+  }
+  
+  
+  #download-btn {
+    background-color: #ff69b4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+#download-btn:hover {
+    background: #fc3498;
+}
+  

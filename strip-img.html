@@ -1,0 +1,68 @@
+<!-- photo-strip.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Photo Strip</title>
+  <link rel="stylesheet" href="strip-style.css">
+</head>
+<body>
+    <div id="strip-container">
+        <div class="strip-box">
+            <img id="photo-strip" src="" alt="Your Photo Strip">
+        </div>
+        <div class="info-box">
+          <h2>Your Strip📸</h2>
+          <p id="photo-time"></p>  <!-- ✅ Add this line -->
+          <button id="download-btn">Download</button>
+</div>
+    </div>  
+  <script>
+  const img = document.getElementById('photo-strip');
+  const downloadBtn = document.getElementById('download-btn');
+  const photoTime = document.getElementById('photo-time');
+  // Get userId from URL or sessionStorage
+  const urlParams = new URLSearchParams(window.location.search);
+  const userId = urlParams.get('userId') || sessionStorage.getItem('userId');
+
+  function enableDownload(url) {
+    downloadBtn.addEventListener('click', () => {
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'photo-strip.jpg';
+      a.click();
+    });
+  }
+
+  const dataURL = sessionStorage.getItem('photoStripData');
+  const timestamp = sessionStorage.getItem('photoTimestamp');
+
+  if (dataURL) {
+    img.src = dataURL;
+    if (timestamp) photoTime.textContent = `Taken at: ${decodeURIComponent(timestamp)}`;
+    enableDownload(dataURL);
+  } else if (userId) {
+    // Try to fetch from server
+    fetch(`/strip/${userId}`)
+      .then(res => {
+        if (!res.ok) throw new Error('Image not found');
+        return res.blob();
+      })
+      .then(blob => {
+        const url = URL.createObjectURL(blob);
+        img.src = url;
+        photoTime.textContent = 'Loaded from server';
+        enableDownload(url);
+      })
+      .catch(err => {
+        console.error(err);
+        img.alt = '⚠️ No image found';
+        photoTime.textContent = 'No photo strip found. Please take photos first.';
+      });
+  } else {
+    img.alt = '⚠️ No image found';
+    photoTime.textContent = 'No photo strip found. Please take photos first.';
+  }
+  </script>      
+</body>
+</html>

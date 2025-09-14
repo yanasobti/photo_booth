@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photo Booth</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <video id="video" autoplay></video>
+        <div id="pose-reminder" class="pose-text"></div>
+        <audio id="shutter-sound" src="stutter.mp3.wav" preload="auto"></audio>
+        <div id="countdown"></div>
+        <button id="snap-btn"><b>📸 CLICK</b></button>
+        <div id="strip"></div>
+        <div class="strip-frame"></div> 
+        <div id="filter-buttons" style="margin-top: 20px; text-align: center;">
+          <button class="filter-btn" data-filter="none">None</button>
+          <button class="filter-btn" data-filter="grayscale(100%)">Grayscale</button>
+          <button class="filter-btn" data-filter="sepia(100%)">Sepia</button>
+          <button class="filter-btn" data-filter="invert(100%)">Invert</button>
+          <button class="filter-btn" data-filter="blur(3px)">Blur</button>
+          <button class="filter-btn" data-filter="contrast(200%)">High Contrast</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
