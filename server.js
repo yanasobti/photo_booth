@@ -6,7 +6,7 @@ const path = require('path');
 const PORT = 5500;
 
 app.use(express.json({ limit: '10mb' }));
-app.use(express.static(__dirname)); // Serves index.html, script.js, etc.
+app.use(express.static(path.join(__dirname, 'public'))); // Serves index.html, script.js, etc.
 
 const imageDataMap = {};
 
